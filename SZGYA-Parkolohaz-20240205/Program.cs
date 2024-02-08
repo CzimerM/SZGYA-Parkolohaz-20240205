@@ -36,10 +36,20 @@ namespace SZGYA_Parkolohaz_20240205
             Console.WriteLine("\n11.feladat");
             var sw = new StreamWriter("../../../src/egyauto.txt", false, Encoding.UTF8);
             emeletek.Where(e => e.Szektorok.Contains(1)).ToList().ForEach(i => sw.WriteLine($"{i.Szint}-{string.Join('-',i.Szektorok.Select((val, i) => (val,i)).Where(e => e.val == 1).Select(e => e.i + 1))}"));
-            sw.Close();
+            
 
             //12
+            var legfelso = emeletek.Last();
+            var max = emeletek.MaxBy(e => e.Szektorok.Sum());
+            Console.WriteLine($"\n12.feladat: {(legfelso == max ? "igaz" :  $"hamis, a legtöbb a {max.Nev} emeleten van")}");
 
+            //13
+            Console.WriteLine("\n13.feladat");
+            emeletek.ForEach(e => sw.WriteLine($"{e.Nev}: {e.Szektorok.Count * 15 - e.Szektorok.Sum()}"));
+            sw.Close();
+
+            //14
+            Console.WriteLine($"\n14.feladat: {(emeletek.Count * emeletek.First().Szektorok.Count * 15) - (emeletek.Sum(e => e.Szektorok.Sum()))}");
         }
     }
 }

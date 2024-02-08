@@ -1,2 +1,14 @@
 ﻿5-2
 11-1
+Macska: 52
+Kutya: 61
+Papagáj: 59
+Ló: 65
+Sas: 52
+Nyúl: 22
+Farkas: 30
+Zsiráf: 17
+Oroszlán: 47
+Majom: 52
+Lajhár: 45
+Elefánt: 16
