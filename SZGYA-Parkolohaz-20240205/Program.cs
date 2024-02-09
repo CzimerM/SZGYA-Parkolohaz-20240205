@@ -30,7 +30,7 @@ namespace SZGYA_Parkolohaz_20240205
 
             //10
             var atlag = emeletek.Average(e => e.Szektorok.Average());
-            Console.WriteLine($"\n10.feladat: \n\tÁtlag count: {emeletek.Sum(e => e.Szektorok.Count(i => i == atlag))}\n\tÁtlag alatti: {emeletek.Sum(e => e.Szektorok.Count(i => i < atlag))}\n\tÁtlag feletti: {emeletek.Sum(e => e.Szektorok.Count(i => i > atlag))}");
+            Console.WriteLine($"\n10.feladat: \n\tÁtlag count: {emeletek.Sum(e => e.Szektorok.Count(i => i == (int)Math.Round(atlag)))}\n\tÁtlag alatti: {emeletek.Sum(e => e.Szektorok.Count(i => i < atlag))}\n\tÁtlag feletti: {emeletek.Sum(e => e.Szektorok.Count(i => i > atlag))}");
 
             //11
             Console.WriteLine("\n11.feladat");
