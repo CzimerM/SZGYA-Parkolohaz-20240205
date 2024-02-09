@@ -25,12 +25,15 @@ namespace SZGYA_Parkolohaz_20240205
             Console.WriteLine($"\n8.feladat: {emeletek.MinBy(e => e.Szektorok.Sum()).Nev}");
 
             //9
-            var nincs = emeletek.FirstOrDefault(e => e.Szektorok.Contains(0));
-            Console.WriteLine($"\n9.feladat: {(nincs == null ? "\nNincs ilyen" : $"\n{nincs.Szint}.szint {nincs.Szektorok.Select((val, i) => (val, i)).First(i => i.val == 0).i - 1}.szektor")}");
+            Console.WriteLine("\n9.feladat");
+            var nincs = emeletek.FindAll(e => e.Szektorok.Contains(0));
+            if (nincs.Count == 0 ) Console.WriteLine("Nincs ilyen");
+            nincs.ForEach(e => Console.WriteLine($"{e.Szint}.szint {e.Szektorok.Select((val, i) => (val, i)).First(e => e.val == 0).i + 1}.szektor"));
+            
 
             //10
             var atlag = emeletek.Average(e => e.Szektorok.Average());
-            Console.WriteLine($"\n10.feladat: \n\tÁtlag count: {emeletek.Sum(e => e.Szektorok.Count(i => i == (int)Math.Round(atlag)))}\n\tÁtlag alatti: {emeletek.Sum(e => e.Szektorok.Count(i => i < atlag))}\n\tÁtlag feletti: {emeletek.Sum(e => e.Szektorok.Count(i => i > atlag))}");
+            Console.WriteLine($"\n10.feladat: \n\tÁtlag count: {emeletek.Sum(e => e.Szektorok.Count(i => i == atlag))}\n\tÁtlag alatti: {emeletek.Sum(e => e.Szektorok.Count(i => i < atlag))}\n\tÁtlag feletti: {emeletek.Sum(e => e.Szektorok.Count(i => i > atlag))}");
 
             //11
             Console.WriteLine("\n11.feladat");
