@@ -29,8 +29,8 @@ namespace SZGYA_Parkolohaz_20240205
             Console.WriteLine($"\n9.feladat: {(nincs == null ? "\nNincs ilyen" : $"\n{nincs.Szint}.szint {nincs.Szektorok.Select((val, i) => (val, i)).First(i => i.val == 0).i - 1}.szektor")}");
 
             //10
-            var atlag = (int)Math.Round(emeletek.Average(e => e.Szektorok.Average()));
-            Console.WriteLine($"\n10.feladat: \n\tÁtlag count: {emeletek.Sum(e => e.Szektorok.Count(i => i == atlag))}\n\tÁtlag alatti: {emeletek.Sum(e => e.Szektorok.Count(i => i <= atlag))}\n\tÁtlag feletti: {emeletek.Sum(e => e.Szektorok.Count(i => i >= atlag))}");
+            var atlag = emeletek.Average(e => e.Szektorok.Average());
+            Console.WriteLine($"\n10.feladat: \n\tÁtlag count: {emeletek.Sum(e => e.Szektorok.Count(i => i == atlag))}\n\tÁtlag alatti: {emeletek.Sum(e => e.Szektorok.Count(i => i < atlag))}\n\tÁtlag feletti: {emeletek.Sum(e => e.Szektorok.Count(i => i > atlag))}");
 
             //11
             Console.WriteLine("\n11.feladat");
